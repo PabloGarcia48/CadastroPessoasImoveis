@@ -49,15 +49,29 @@ $people = $controller->people();
 
     <form method="POST">
 
+
+
         <input type="hidden" name="id" value="<?= $editProperty["id"] ?? "" ?>">
 
-        <input class="form-control" name="street" placeholder="Logradouro" value="<?= $editProperty["street"] ?? "" ?>" required>
+        <div class="form-floating mb-3">
+            <input class="form-control" name="street" id="street" placeholder="Logradouro" value="<?= $editProperty["street"] ?? "" ?>" required>
+            <label for="street">Logradouro</label>
+        </div>
 
-        <input class="form-control" name="number" placeholder="Número" value="<?= $editProperty["number"] ?? "" ?>" required>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" name="number" id="number" placeholder="Número" value="<?= $editProperty["number"] ?? "" ?>" required>
+            <label for="number">Número</label>
+        </div>
 
-        <input class="form-control" name="neighborhood" placeholder="Bairro" value="<?= $editProperty["neighborhood"] ?? "" ?>" required>
+        <div class="form-floating mb-3">
+            <input class="form-control" name="neighborhood" id="neighborhood" placeholder="Bairro" value="<?= $editProperty["neighborhood"] ?? "" ?>" required>
+            <label for="neighborhood">Bairro</label>
+        </div>
 
-        <input class="form-control" name="complement" placeholder="Complemento" value="<?= $editProperty["complement"] ?? "" ?>">
+        <div class="form-floating mb-3">
+            <input class="form-control" name="complement" id="complement" placeholder="Complemento" value="<?= $editProperty["complement"] ?? "" ?>">
+            <label for="complement">Complemento</label>
+        </div>
 
         <select name="person_id" required>
 
@@ -87,14 +101,18 @@ $people = $controller->people();
 
     <hr>
 
-        <form method="GET" class="row mb-3">
+    <form method="GET" class="row mb-3">
 
         <div class="col">
-            <input
-                class="form-control"
-                name="street"
-                placeholder="Pesquisar por Logradouro"
-                value="<?= $_GET["street"] ?? "" ?>">
+            <div class="form-floating mb-3">
+                <input
+                    class="form-control"
+                    name="street"
+                    id="searchStreet"
+                    placeholder="Pesquisar por Logradouro"
+                    value="<?= $_GET["street"] ?? "" ?>">
+                <label for="searchStreet">Pesquisar por Logradouro</label>
+            </div>
         </div>
 
         <div class="col-auto">

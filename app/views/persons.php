@@ -49,28 +49,44 @@ if (isset($_POST["update"])) {
     <h2><?= $editPerson ? "Editar Pessoa" : "Cadastrar Pessoa" ?></h2>
 
     <form method="POST">
+
         <input class="form-control" type="hidden" name="id" value="<?= $editPerson["id"] ?? "" ?>">
 
-        <input class="form-control" type="text" name="name" placeholder="Nome" required
-            value="<?= $editPerson["name"] ?? "" ?>"><br>
+        <div class="form-floating mb-3">
+            <input class="form-control" id="name" type="text" name="name" placeholder="Nome" required
+                value="<?= $editPerson["name"] ?? "" ?>"><br>
+            <label for="name">Nome</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input class="form-control" id="cpf" type="text" name="cpf" placeholder="CPF" required
+                value="<?= $editPerson["cpf"] ?? "" ?>"><br>
+            <label for="cpf">CPF</label>
+        </div>
 
         <input class="form-control" type="date" name="birth_date" required
             value="<?= $editPerson["birth_date"] ?? "" ?>"><br>
 
-        <input class="form-control" type="text" name="cpf" placeholder="CPF" required
-            value="<?= $editPerson["cpf"] ?? "" ?>"><br>
+        <div class="form-floating">
+            <select class="form-select" id="floatingSelect" name="gender">
+                <option selected>---</option>
+                <option value="M" <?= (isset($editPerson) && $editPerson["gender"] == "M") ? "selected" : "" ?>>Masculino</option>
+                <option value="F" <?= (isset($editPerson) && $editPerson["gender"] == "F") ? "selected" : "" ?>>Feminino</option>
+            </select>
+            <label for="floatingSelect">Gênero</label>
+        </div>
 
-        <select name="gender" required>
-            <option value="">Sexo</option>
-            <option value="M" <?= (isset($editPerson) && $editPerson["gender"] == "M") ? "selected" : "" ?>>Masculino</option>
-            <option value="F" <?= (isset($editPerson) && $editPerson["gender"] == "F") ? "selected" : "" ?>>Feminino</option>
-        </select><br>
+        <div class="form-floating mb-3">
+            <input class="form-control" id="phone" type="text" name="phone" placeholder="Telefone"
+                value="<?= $editPerson["phone"] ?? "" ?>"><br>
+            <label for="phone">Telefone</label>
+        </div>
 
-        <input class="form-control" type="text" name="phone" placeholder="Telefone"
-            value="<?= $editPerson["phone"] ?? "" ?>"><br>
-
-        <input class="form-control" type="email" name="email" placeholder="Email"
-            value="<?= $editPerson["email"] ?? "" ?>"><br>
+        <div class="form-floating mb-3">
+            <input class="form-control" id="email" type="email" name="email" placeholder="Email"
+                value="<?= $editPerson["email"] ?? "" ?>"><br>
+            <label for="email">Email</label>
+        </div>
 
         <?php if ($editPerson): ?>
             <button class="btn btn-primary" type="submit" name="update">Atualizar</button>
@@ -79,7 +95,7 @@ if (isset($_POST["update"])) {
         <?php endif; ?>
     </form>
 
-        <hr>
+    <hr>
 
     <form method="GET" class="row mb-3">
 
@@ -101,7 +117,7 @@ if (isset($_POST["update"])) {
 
     </form>
 
-        <hr>
+    <hr>
 
     <h3>Lista de Pessoa</h3>
 
