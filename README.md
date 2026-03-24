@@ -147,18 +147,17 @@ factory.php
 
 ```
 app
+ ├── config
+ ├      ├── database.php
+        ├── factory.php
+        ├── setup.php
  ├── controllers
  ├── models
  └── views
 
-config
- └── database.php
-
 public
  ├── index.php
  └── properties.php
-
-setup.php
 ```
 
 O projeto segue uma estrutura **MVC simplificada**:
