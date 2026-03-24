@@ -148,9 +148,9 @@ factory.php
 ```
 app
  ├── config
- ├      ├── database.php
-        ├── factory.php
-        ├── setup.php
+ |     ├── database.php
+ |     ├── factory.php
+ |     └── setup.php
  ├── controllers
  ├── models
  └── views
