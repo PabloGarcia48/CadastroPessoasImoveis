@@ -1,6 +1,6 @@
 # 🏠 Sistema de Cadastro Imobiliário
 
-Este projeto é um sistema web simples para **cadastro e gerenciamento de pessoas e imóveis**, desenvolvido em **PHP** com **MySQL** no backend e **HTML**, **CSS** e **Bootstrap** no frontend.
+Este projeto é um sistema web simples para **cadastro e gerenciamento de pessoas e imóveis**, desenvolvido em **PHP** com **MySQL** no backend e **HTML**, **CSS**, **JavaScript** e **Bootstrap** no frontend.
 
 O sistema permite cadastrar pessoas (com CPF) e associar imóveis a essas pessoas, simulando um cadastro imobiliário básico.
 
@@ -10,7 +10,7 @@ O sistema permite cadastrar pessoas (com CPF) e associar imóveis a essas pessoa
 
 * PHP (backend)
 * MySQL (banco de dados)
-* HTML / CSS
+* HTML / CSS / JavaScript
 * Bootstrap (estilização)
 * PDO para conexão com banco
 * Servidor embutido do PHP
