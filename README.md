@@ -133,6 +133,16 @@ http://localhost:8000
 
 ---
 
+### 7️⃣ Popular banco de dados (opcional)
+
+Pare o servidor, execute o arquivo:
+
+```
+factory.php
+```
+
+---
+
 ## 📂 Estrutura do Projeto
 
 ```

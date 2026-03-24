@@ -53,45 +53,49 @@ $people = $controller->people();
 
         <input type="hidden" name="id" value="<?= $editProperty["id"] ?? "" ?>">
 
-        <div class="form-floating mb-3">
-            <input class="form-control" name="street" id="street" placeholder="Logradouro" value="<?= $editProperty["street"] ?? "" ?>" required>
-            <label for="street">Logradouro</label>
+        <div class="row g-2">
+            <div class="col-sm-8">
+                <div class="form-floating mb-3">
+                    <input class="form-control" name="street" id="street" placeholder="Logradouro" value="<?= $editProperty["street"] ?? "" ?>" required>
+                    <label for="street">Logradouro</label>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" name="number" id="number" placeholder="Número" value="<?= $editProperty["number"] ?? "" ?>" required>
+                    <label for="number">Número</label>
+                </div>
+            </div>
         </div>
 
-        <div class="form-floating mb-3">
-            <input type="number" class="form-control" name="number" id="number" placeholder="Número" value="<?= $editProperty["number"] ?? "" ?>" required>
-            <label for="number">Número</label>
-        </div>
+        <div class="row g-2">
+            <div class="col-md">
+                <div class="form-floating mb-3">
+                    <input class="form-control" name="neighborhood" id="neighborhood" placeholder="Bairro" value="<?= $editProperty["neighborhood"] ?? "" ?>" required>
+                    <label for="neighborhood">Bairro</label>
+                </div>
+            </div>
 
-        <div class="form-floating mb-3">
-            <input class="form-control" name="neighborhood" id="neighborhood" placeholder="Bairro" value="<?= $editProperty["neighborhood"] ?? "" ?>" required>
-            <label for="neighborhood">Bairro</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input class="form-control" name="complement" id="complement" placeholder="Complemento" value="<?= $editProperty["complement"] ?? "" ?>">
-            <label for="complement">Complemento</label>
+            <div class="col-md">
+                <div class="form-floating mb-3">
+                    <input class="form-control" name="complement" id="complement" placeholder="Complemento" value="<?= $editProperty["complement"] ?? "" ?>">
+                    <label for="complement">Complemento</label>
+                </div>
+            </div>
         </div>
 
         <select name="person_id" required>
-
-            <option value="">Selecione o proprietário</option>
-
+            <option value="">Nome do Contribuinte</option>
             <?php foreach ($people as $person): ?>
-
                 <option
                     value="<?= $person["id"] ?>"
                     <?= isset($editProperty) && $editProperty["person_id"] == $person["id"] ? "selected" : "" ?>>
-
                     <?= $person["name"] ?>
-
                 </option>
-
             <?php endforeach; ?>
-
         </select>
 
-        <button class="btn btn-primary" type="submit" name="<?= $editProperty ? "update" : "create" ?>">
+        <button class="btn btn-primary mx-3" type="submit" name="<?= $editProperty ? "update" : "create" ?>">
 
             <?= $editProperty ? "Atualizar" : "Cadastrar" ?>
 
@@ -115,11 +119,11 @@ $people = $controller->people();
             </div>
         </div>
 
-        <div class="col-auto">
+        <div class="col-auto mt-2">
             <button class="btn btn-primary">Buscar</button>
         </div>
 
-        <div class="col-auto">
+        <div class="col-auto mt-2">
             <a href="/properties.php" class="btn btn-secondary">Limpar</a>
         </div>
 
@@ -132,7 +136,7 @@ $people = $controller->people();
     <table class="table table-striped">
 
         <tr>
-            <th>Inscrição Municipal</th>
+            <th>Insc Mun</th>
             <th>Logradouro</th>
             <th>Número</th>
             <th>Bairro</th>
@@ -152,14 +156,21 @@ $people = $controller->people();
                 <td><?= $property["complement"] ?></td>
                 <td><?= $property["owner"] ?></td>
 
-                <td>
 
-                    <a href="?edit=<?= $property["id"] ?>">Editar</a>
+                <td class="d-flex gap-2">
+                    <button
+                        class="btn btn-sm btn-outline-primary"
+                        type="button"
+                        onclick="window.location.href='?edit=<?= $property['id'] ?>'">
+                        Editar
+                    </button>
 
-                    <a href="?delete=<?= $property["id"] ?>" onclick="return confirm('Excluir imóvel?')">
+                    <button
+                        class="btn btn-sm btn-outline-danger"
+                        type="button"
+                        onclick="if (confirm('Excluir imóvel?')) window.location.href='?delete=<?= $property['id'] ?>'">
                         Excluir
-                    </a>
-
+                    </button>
                 </td>
 
             </tr>

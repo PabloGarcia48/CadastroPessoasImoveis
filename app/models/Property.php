@@ -17,6 +17,7 @@ class Property
             SELECT properties.*, people.name AS owner
             FROM properties
             JOIN people ON properties.person_id = people.id
+            ORDER BY properties.id DESC
         ");
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -81,7 +82,8 @@ class Property
             "SELECT properties.*, people.name AS owner
             FROM properties
             JOIN people ON properties.person_id = people.id
-            WHERE street LIKE ?"
+            WHERE street LIKE ?
+            ORDER BY properties.id DESC"
         );
 
         $stmt->execute(["%$street%"]);

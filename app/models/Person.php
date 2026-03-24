@@ -20,7 +20,7 @@ class Person
 
     public function getAll()
     {
-        $stmt = $this->pdo->query("SELECT * FROM people");
+        $stmt = $this->pdo->query("SELECT * FROM people ORDER BY id DESC");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -57,7 +57,7 @@ class Person
     public function searchByCPF($cpf)
     {
         $stmt = $this->pdo->prepare(
-            "SELECT * FROM people WHERE cpf LIKE ?"
+            "SELECT * FROM people WHERE cpf LIKE ? ORDER BY id DESC"
         );
 
         $stmt->execute(["%$cpf%"]);
