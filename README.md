@@ -168,6 +168,18 @@ O projeto segue uma estrutura **MVC simplificada**:
 
 ---
 
+## 📸 Telas do Sistema
+
+### Cadastro de Pessoas
+
+![Tela de cadastro de pessoas](assets/PersonScreenShot.png)
+
+### Cadastro de Imóveis
+
+![Tela de cadastro de imóveis](assets/PropertyScreenShot.png)
+
+---
+
 ## 👨‍💻 Autor
 
 Pablo Garcia
